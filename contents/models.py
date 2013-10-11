@@ -1,6 +1,12 @@
-from django.db import models
+from datetime import datetime
 
-# Create your models here.
+from django.db import models
+from django.conf import settings
+
+from networks.models import Network
+from properties.models import Property
+from events.models import Event
+
 
 class Content(models.Model):
 	ext_id = models.CharField(max_length=250)
@@ -10,7 +16,7 @@ class Content(models.Model):
 	status = models.IntegerField(max_length=1, choices=settings.CONTENT_STATUS, null=False, default=1)
 	network_id = models.ForeignKey(Network, null=True, default=0)
 	property_id = models.ForeignKey(Property, null=True, default=0)
-	important = forms.BooleanField(initial=False)
+	important = models.BooleanField(default=False)
 
 
 class ContentEvent(models.Model):
