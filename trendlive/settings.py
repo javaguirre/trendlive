@@ -22,6 +22,8 @@ DATABASES = {
     }
 }
 
+CONTENT_STATUS = ((0, 'Delete'), (1, 'Public'), (2, 'Hidden'), (3, 'Spam'))
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
