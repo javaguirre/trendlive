@@ -4,8 +4,7 @@ from django.db import models
 from django.conf import settings
 
 from networks.models import Network
-from properties.models import Property
-from events.models import Event
+from events.models import Event, Property
 
 
 class Content(models.Model):

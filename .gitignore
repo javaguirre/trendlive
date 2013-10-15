@@ -1,3 +1,4 @@
 *.pyc
 *.sw[op]?
 settings_local.py
+trendlive.db

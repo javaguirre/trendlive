@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import Event
+from .models import Event, Property
+
+
+class PropertyInline(admin.TabularInline):
+    model = Event.properties.through
+
+
+class PropertyAdmin(admin.ModelAdmin):
+    model = Property
+    inlines = [PropertyInline, ]
+
 
 class EventAdmin(admin.ModelAdmin):
     search_fields = ("name",)
@@ -10,3 +20,7 @@ class EventAdmin(admin.ModelAdmin):
     to_slug.short_description = 'Slug'
 	
 admin.site.register(Event,EventAdmin)
+    inlines = [PropertyInline, ]
+
+admin.site.register(Event, EventAdmin)
+admin.site.register(Property, PropertyAdmin)
