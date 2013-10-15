@@ -12,3 +12,6 @@ class Event(models.Model):
 	status = models.IntegerField(max_length=1, choices=STATUS, null=False, default=0)
 	slug = models.CharField(max_length=250)
 	created = models.DateTimeField(default=datetime.now(), null=True, blank=True)
+
+	def __unicode__(self):
+	   return u'%s (%s)' % (self.name, self.description)
